@@ -1,0 +1,19 @@
+version: '3'
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:20.0.3
+    command: start-dev
+    environment:
+      DEBUG: 'true'
+      DEBUG_PORT: '*:8787'
+      KC_LOG_LEVEL: INFO,de.keycloak:debug
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    ports:
+      - '8080:8080'
+      - '8787:8787'
+    volumes:
+      - kc-data:/opt/keycloak/data
+      - ./target/keycloak-dev-workshop-1.0-SNAPSHOT.jar:/opt/keycloak/providers/keycloak-dev-workshop.jar
+volumes:
+  kc-data:
