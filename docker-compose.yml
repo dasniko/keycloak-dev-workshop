@@ -14,6 +14,6 @@ services:
       - '8787:8787'
     volumes:
       - kc-data:/opt/keycloak/data
-      - ./target/keycloak-dev-workshop-1.0-SNAPSHOT.jar:/opt/keycloak/providers/keycloak-dev-workshop.jar
+      - ./target/keycloak-dev-workshop.jar:/opt/keycloak/providers/keycloak-dev-workshop.jar
 volumes:
   kc-data:
