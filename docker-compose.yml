@@ -1,8 +1,8 @@
 version: '3'
 services:
   keycloak:
-    image: quay.io/keycloak/keycloak:21.1
-    command: start-dev
+    image: quay.io/keycloak/keycloak:21.0
+    command: start-dev --import-realm
     environment:
       DEBUG: 'true'
       DEBUG_PORT: '*:8787'
@@ -14,6 +14,7 @@ services:
       - '8787:8787'
     volumes:
       - kc-data:/opt/keycloak/data
+      - ./src/test/resources/demo-realm.json:/opt/keycloak/data/import/demo-realm.json
       - ./target/keycloak-dev-workshop.jar:/opt/keycloak/providers/keycloak-dev-workshop.jar
 volumes:
   kc-data:
