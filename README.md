@@ -1,17 +1,16 @@
 # Keycloak Extension Development Workshop by @dasniko
 
-Weitere Infos auch unter https://www.n-k.de/trainings/keycloak-extensions/
-
 ## Technische Anforderungen
+
 * Notebook/Laptop
 * Java-IDE nach Wahl  
 _(z.B. IntelliJ IDEA, Eclipse, VS Code, Netbeans, etc.)_
-* JDK 11+
+* JDK 17+
 * Maven 3.8+
-* Docker und Docker Compose (V2!) installiert und lauffähig  
+* Docker und Docker Compose V2! installiert und lauffähig  
 _(ggf. lokale Admin-Rechte auf dem Rechner erteilen)_
-* für den Zugriff auf das Internet bitte ggf. Proxy-/Firewall-/VPN-Konfigurationen etc. überprüfen
-* _Optional: HTTP-Client (z.B. Insomnia, Postman, etc.)_
+* Internetzugriff (ggf. Proxy-/Firewall-/VPN-Konfigurationen etc. überprüfen)
+* HTTP-Client (z.B. Insomnia, Postman, etc.)
 
 ## Vorbereitungen
 
@@ -32,4 +31,4 @@ _oder_ HTTPS:
 
 Lade das folgende Docker Image vor dem Workshop runter:
 
-    $ docker pull quay.io/keycloak/keycloak:21.0
+    $ docker pull quay.io/keycloak/keycloak:22.0
