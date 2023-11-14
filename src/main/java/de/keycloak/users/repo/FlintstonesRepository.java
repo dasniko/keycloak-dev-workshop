@@ -2,68 +2,84 @@ package de.keycloak.users.repo;
 
 import lombok.SneakyThrows;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
+/**
+ * @author Niko Köbler, http://www.n-k.de, @dasniko
+ */
 public class FlintstonesRepository {
 
-    private final List<FlintstoneUser> users = new ArrayList<>();
+	private final List<FlintstoneUser> users = new ArrayList<>();
 
-    @SneakyThrows
-    public FlintstonesRepository() {
-        try (InputStream inputStream = Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("/flintstones.csv"))) {
-            List<String> lines = new BufferedReader(new InputStreamReader(inputStream)).lines().collect(Collectors.toList());
-            lines.forEach(line -> {
-                String[] values = line.split(";");
-                users.add(
-                        new FlintstoneUser(values[0], values[1], values[2], Boolean.parseBoolean(values[3]), values.length > 4 ? List.of(values[4]) : null)
-                );
-            });
-        }
-    }
+	@SneakyThrows
+	FlintstonesRepository() {
+		users.add(new FlintstoneUser("66671638-b48a-4bab-8f37-d20efea42ce3", "fred.flintstone@flintstones.com", "Fred", "Flintstone", true, List.of("stoneage")));
+		users.add(new FlintstoneUser("ced34250-cb88-4cc0-87e8-6fca25a926e3", "wilma.flintstone@flintstones.com", "Wilma", "Flintstone", true, List.of("stoneage")));
+		users.add(new FlintstoneUser("12df5d9c-c6ac-48e8-8086-b10ab7985a65", "pebbles.flintstone@flintstones.com", "Pebbles", "Flintstone", true, List.of("stoneage")));
+		users.add(new FlintstoneUser("1b6c083b-3e14-40ef-897c-a0d3cdba22ed", "barney.rubble@flintstones.com", "Barney", "Rubble", true, List.of("stoneage")));
+		users.add(new FlintstoneUser("42c88684-c585-4d83-b748-7a49213c4690", "betty.rubble@flintstones.com", "Betty", "Rubble", true, null));
+		users.add(new FlintstoneUser("08950eb2-920b-48f5-bbe0-9694e8ad6fc4", "bambam.rubble@flintstones.com", "Bam Bam", "Rubble", false, null));
+	}
 
-    public List<FlintstoneUser> getAllUsers() {
-        return users;
-    }
+	List<FlintstoneUser> getAllUsers() {
+		return users;
+	}
 
-    public int getUsersCount() {
-        return users.size();
-    }
+	int getUsersCount() {
+		return users.size();
+	}
 
-    public FlintstoneUser findUserByUsernameOrEmail(String username) {
-        return users.stream()
-                .filter(user -> user.getUsername().equalsIgnoreCase(username) || user.getEmail().equalsIgnoreCase(username))
-                .findFirst().orElse(null);
-    }
+	FlintstoneUser findUserById(String id) {
+		return users.stream()
+			.filter(user -> user.getId().equalsIgnoreCase(id))
+			.findFirst().orElse(null);
+	}
 
-    public List<FlintstoneUser> findUsers(String query) {
-        return users.stream()
-                .filter(user -> query.equalsIgnoreCase("*") || user.getUsername().contains(query) || user.getEmail().contains(query))
-                .collect(Collectors.toList());
-    }
+	private FlintstoneUser findUserByUsernameOrEmailInternal(String username) {
+		return users.stream()
+			.filter(user -> user.getUsername().equalsIgnoreCase(username) || user.getEmail().equalsIgnoreCase(username))
+			.findFirst().orElse(null);
+	}
 
-    public boolean validateCredentials(String username, String password) {
-        return findUserByUsernameOrEmail(username).getPassword().equals(password);
-    }
+	FlintstoneUser findUserByUsernameOrEmail(String username) {
+		FlintstoneUser user = findUserByUsernameOrEmailInternal(username);
+		return user != null ? user.clone() : null;
+	}
 
-    public boolean updateCredentials(String username, String password) {
-        findUserByUsernameOrEmail(username).setPassword(password);
-        return true;
-    }
+	List<FlintstoneUser> findUsers(String query) {
+		return users.stream()
+			.filter(user -> query.equalsIgnoreCase("*") || user.getUsername().contains(query) || user.getEmail().contains(query))
+			.collect(Collectors.toList());
+	}
 
-    public void addUser(FlintstoneUser user) {
-        user.setCreated(System.currentTimeMillis());
-        user.setPassword(user.getFirstName().toLowerCase());
-        users.add(user);
-    }
+	boolean validateCredentials(String id, String password) {
+		return findUserById(id).getPassword().equals(password);
+	}
 
-    public boolean removeUser(String username) {
-        return users.removeIf(p -> p.getUsername().equals(username));
-    }
+	boolean updateCredentials(String id, String password) {
+		findUserById(id).setPassword(password);
+		return true;
+	}
+
+	void createUser(FlintstoneUser user) {
+		user.setId(UUID.randomUUID().toString());
+		user.setCreated(System.currentTimeMillis());
+		users.add(user);
+	}
+
+	void updateUser(FlintstoneUser user) {
+		FlintstoneUser existing = findUserByUsernameOrEmailInternal(user.getUsername());
+		existing.setEmail(user.getEmail());
+		existing.setFirstName(user.getFirstName());
+		existing.setLastName(user.getLastName());
+		existing.setEnabled(user.isEnabled());
+	}
+
+	boolean removeUser(String id) {
+		return users.removeIf(p -> p.getId().equals(id));
+	}
 
 }
