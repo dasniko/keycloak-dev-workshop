@@ -3,14 +3,11 @@
 ## Technische Anforderungen
 
 * Notebook/Laptop
-* Java-IDE nach Wahl  
-_(z.B. IntelliJ IDEA, Eclipse, VS Code, Netbeans, etc.)_
-* JDK 17+
-* Maven 3.8+
-* Docker und Docker Compose V2! installiert und lauffähig  
-_(ggf. lokale Admin-Rechte auf dem Rechner erteilen)_
+* Java-IDE nach Wahl (z.B. IntelliJ IDEA, Eclipse, VS Code, Netbeans, etc.)
+* JDK 17
+* [Docker](https://www.docker.com/) und [Docker Compose](https://docs.docker.com/compose/) V2 installiert und lauffähig (ggf. lokale Admin-Rechte auf dem Rechner erteilen)
 * Internetzugriff (ggf. Proxy-/Firewall-/VPN-Konfigurationen etc. überprüfen)
-* HTTP-Client (z.B. Insomnia, Postman, etc.)
+* separater HTTP-Client, wenn die IDE diesen nicht mitbringt (z.B. [Insomnia](https://insomnia.rest/), [Postman](https://www.postman.com/), [REST CLient for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=humao.rest-client), o.ä.)
 
 ## Vorbereitungen
 

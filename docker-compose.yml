@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 services:
   keycloak:
     image: quay.io/keycloak/keycloak:22.0
@@ -18,3 +18,4 @@ services:
       - ./target/keycloak-dev-workshop.jar:/opt/keycloak/providers/keycloak-dev-workshop.jar
 volumes:
   kc-data:
+    name: keycloak-dev-workshop
