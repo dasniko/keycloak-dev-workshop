@@ -28,4 +28,4 @@ _oder_ HTTPS:
 
 Lade das folgende Docker Image vor dem Workshop runter:
 
-    $ docker pull quay.io/keycloak/keycloak:22.0
+    $ docker pull quay.io/keycloak/keycloak:23.0
