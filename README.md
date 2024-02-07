@@ -11,7 +11,7 @@
 
 ## Vorbereitungen
 
-### Git Repository
+### Git Repository klonen
 
 Klone _dieses_ Git Repository auf Deinen Rechner.
 
@@ -23,6 +23,9 @@ _oder_ HTTPS:
 
     $ git clone https://github.com/dasniko/keycloak-dev-workshop.git
 
+#### oder alternativ per Download:
+
+https://github.com/dasniko/keycloak-dev-workshop/archive/refs/heads/main.zip
 
 ### Docker Image
 
