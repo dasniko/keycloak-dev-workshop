@@ -7,7 +7,7 @@
 * JDK 17
 * [Docker](https://www.docker.com/) und [Docker Compose](https://docs.docker.com/compose/) V2 installiert und lauffähig (ggf. lokale Admin-Rechte auf dem Rechner erteilen)
 * Internetzugriff (ggf. Proxy-/Firewall-/VPN-Konfigurationen etc. überprüfen)
-* separater HTTP-Client, wenn die IDE diesen nicht mitbringt (z.B. [Insomnia](https://insomnia.rest/), [Postman](https://www.postman.com/), [REST CLient for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=humao.rest-client), o.ä.)
+* separater HTTP-Client, wenn die IDE diesen nicht mitbringt (z.B. [HTTP Client for IntelliJ IDEA](https://www.jetbrains.com/help/idea/2023.3/http-client-in-product-code-editor.html), [REST CLient for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=humao.rest-client), [Insomnia](https://insomnia.rest/), [Postman](https://www.postman.com/), o.ä.)
 
 ## Vorbereitungen
 
