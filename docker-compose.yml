@@ -1,14 +1,13 @@
-version: '3.8'
 services:
   keycloak:
-    image: quay.io/keycloak/keycloak:23.0
+    image: quay.io/keycloak/keycloak:26.0
     command: start-dev --import-realm
     environment:
       DEBUG: 'true'
       DEBUG_PORT: '*:8787'
       KC_LOG_LEVEL: INFO,de.keycloak:debug
-      KEYCLOAK_ADMIN: admin
-      KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
     ports:
       - '8080:8080'
       - '8787:8787'
