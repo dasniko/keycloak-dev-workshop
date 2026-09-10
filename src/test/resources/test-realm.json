@@ -1,0 +1,18 @@
+{
+  "id" : "test",
+  "realm" : "test",
+  "enabled" : true,
+  "users" : [ {
+    "username" : "tester",
+    "enabled" : true,
+    "emailVerified" : true,
+    "firstName" : "Theo",
+    "lastName" : "Tester",
+    "email" : "tester@keycloak.de",
+    "credentials" : [ {
+      "type" : "password",
+      "value": "test"
+    } ],
+    "realmRoles" : [ "default-roles-test" ]
+  } ]
+}

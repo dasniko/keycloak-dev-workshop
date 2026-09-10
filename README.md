@@ -1,6 +1,6 @@
 # Keycloak Extension Development Workshop by @dasniko
 
-![](https://img.shields.io/badge/Keycloak-26.3-blue)
+![](https://img.shields.io/badge/Keycloak-26.7-blue)
 ![](https://img.shields.io/badge/Java-17-f89820)
 
 ## Technische Anforderungen
@@ -20,17 +20,15 @@ Klone _dieses_ Git Repository auf Deinen Rechner.
 
 Per SSH:
 
-    $ git clone git@github.com:dasniko/keycloak-dev-workshop.git
+    git clone git@github.com:dasniko/keycloak-dev-workshop.git
 
 _oder_ HTTPS:
 
-    $ git clone https://github.com/dasniko/keycloak-dev-workshop.git
+    git clone https://github.com/dasniko/keycloak-dev-workshop.git
 
-_(oder alternativ per Download:
-https://github.com/dasniko/keycloak-dev-workshop/archive/refs/heads/main.zip)_
 
 ### Docker Image
 
-Lade das folgende Docker Image vor dem Workshop runter:
+Lade das folgende Docker Image vor dem Workshop herunter:
 
-    $ docker pull quay.io/keycloak/keycloak:26.3
+    docker pull quay.io/keycloak/keycloak:26.7
