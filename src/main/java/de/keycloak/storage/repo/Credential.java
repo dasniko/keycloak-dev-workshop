@@ -1,4 +1,4 @@
-package de.keycloak.users.repo;
+package de.keycloak.storage.repo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

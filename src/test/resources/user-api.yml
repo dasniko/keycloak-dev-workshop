@@ -268,6 +268,9 @@ components:
         email:
           type: string
           example: 'fred.flintstone@flintstones.com'
+        emailVerified:
+          type: boolean
+          example: true
         firstName:
           type: string
           example: Fred
@@ -280,11 +283,19 @@ components:
         created:
           type: number
           example: 1672531200
+        pictureUrl:
+          type: string
+          example: https://example.com/picture.jpg
+        groups:
+          type: array
+          items:
+            type: string
+            example: FLINTSTONE_FAMILY
         roles:
           type: array
           items:
             type: string
-            example: stoneage
+            example: STONEAGE
     CredentialModel:
       type: object
       required:
@@ -292,8 +303,8 @@ components:
       properties:
         value:
           type: string
-          description: credential value, e.g. hashed or cleartext password (base64 encoded), the example value here is "password" un-hashed
-          example: cGFzc3dvcmQ
+          description: credential value, (password in cleartext)
+          example: passw0rd
         type:
           type: string
           description: the type of this credential, currently here only "password" is available
