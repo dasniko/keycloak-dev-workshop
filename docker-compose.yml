@@ -13,7 +13,7 @@ services:
       - '8787:8787'
     volumes:
       - kc-data:/opt/keycloak/data
-      - ./src/test/resources/demo-realm.json:/opt/keycloak/data/import/demo-realm.json
+      - ./src/test/resources/test-realm.json:/opt/keycloak/data/import/test-realm.json
       - ./target/keycloak-dev-workshop.jar:/opt/keycloak/providers/keycloak-dev-workshop.jar
 volumes:
   kc-data:
