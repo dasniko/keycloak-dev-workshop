@@ -117,7 +117,7 @@ public class FlintstoneUserAdapter extends AbstractUserAdapterFederatedStorage {
 
 	@Override
 	public void setAttribute(String name, List<String> values) {
-		String value = values != null && !values.isEmpty() ? values.getFirst() : null;
+		String value = values != null && !values.isEmpty() ? values.get(0) : null;
 		switch (name) {
 			case UserModel.USERNAME -> setUsername(value);
 			case UserModel.LAST_NAME -> setLastName(value);

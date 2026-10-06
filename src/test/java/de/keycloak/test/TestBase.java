@@ -88,7 +88,7 @@ public class TestBase {
 	protected UserRepresentation getUser(Keycloak admin, String realm, String username) {
 		List<UserRepresentation> users = admin.realm(realm).users().searchByUsername(username, true);
 		assertThat(users.size(), not(equalTo(0)));
-		return users.getFirst();
+		return users.get(0);
 	}
 
 	protected void updateUser(Keycloak admin, String realm, String username, Consumer<UserRepresentation> consumer) {
