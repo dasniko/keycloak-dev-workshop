@@ -1,6 +1,6 @@
 # Keycloak Extension Development Workshop by @dasniko
 
-![](https://img.shields.io/badge/Keycloak-26.7-blue)
+![](https://img.shields.io/badge/Keycloak-26.8-blue)
 ![](https://img.shields.io/badge/Java-17-f89820)
 
 ## Technische Anforderungen
@@ -31,4 +31,4 @@ _oder_ HTTPS:
 
 Lade das folgende Docker Image vor dem Workshop herunter:
 
-    docker pull quay.io/keycloak/keycloak:26.7
+    docker pull quay.io/keycloak/keycloak:26.8
